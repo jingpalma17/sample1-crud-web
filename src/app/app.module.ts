@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { LayoutModule } from './layout/layout.module';
 
+import { MaterialModule } from './layout/material/material.module';
 @NgModule({
   declarations: [AppComponent, UserComponent],
   imports: [
@@ -17,6 +18,7 @@ import { LayoutModule } from './layout/layout.module';
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
+    MaterialModule,
   ],
   providers: [],
   exports: [LayoutModule],
