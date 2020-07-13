@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { UserService } from './user.service';
+import { UserInfoDialogComponent } from './user-info-dialog/user-info-dialog.component';
 
 @Component({
   selector: 'app-user',
@@ -29,7 +30,7 @@ export class UserComponent implements OnInit {
 
   addUser() {
     this.dialog
-      .open(null, {
+      .open(UserInfoDialogComponent, {
         width: '400px',
       })
       .afterClosed()
