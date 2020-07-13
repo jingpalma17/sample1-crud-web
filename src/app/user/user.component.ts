@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 import { UserService } from './user.service';
 
 @Component({
@@ -8,10 +10,29 @@ import { UserService } from './user.service';
 })
 export class UserComponent implements OnInit {
   users: any; // TODO add type
+  displayedColumns = [
+    'firstName',
+    'lastName',
+    'mobileNumber',
+    'address',
+    'actions',
+  ];
 
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.userService.get().subscribe((users) => (this.users = users));
+  }
+
+  addUser() {
+    this.dialog
+      .open(null, {
+        width: '400px',
+      })
+      .afterClosed()
+      .subscribe();
   }
 }

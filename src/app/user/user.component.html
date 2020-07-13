@@ -1,1 +1,45 @@
-<p>{{ users | json }}</p>
+<h2 class="title">Users</h2>
+<div class="user-list">
+  <mat-table #table [dataSource]="users" matSort class="mat-cell">
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >First Name</mat-header-cell
+      >
+      <mat-cell *matCellDef="let user">{{ user.firstName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Last Name</mat-header-cell
+      >
+      <mat-cell *matCellDef="let user">{{ user.lastName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mobileNumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Mobile Number</mat-header-cell
+      >
+      <mat-cell *matCellDef="let user">{{ user.mobileNumber }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Address</mat-header-cell
+      >
+      <mat-cell *matCellDef="let user">{{ user.address }}</mat-cell>
+    </ng-container>
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary">
+          <mat-icon aria-label="Add">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i = index">
+        <button mat-icon-button color="accent">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
