@@ -31,4 +31,25 @@ export class UserService {
 
     return this.http.get(environment.apiBaseUrl + this.basePath, options);
   }
+
+  create(user) {
+    const headers = new HttpHeaders(this.getHeaders());
+    const options = { headers };
+
+    return this.http.post(
+      environment.apiBaseUrl + this.basePath,
+      user,
+      options
+    );
+  }
+
+  update(user) {
+    const headers = new HttpHeaders(this.getHeaders());
+    const options = { headers };
+    return this.http.put(
+      environment.apiBaseUrl + `${this.basePath}/${user.id}`,
+      user,
+      options
+    );
+  }
 }
