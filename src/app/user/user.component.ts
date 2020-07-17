@@ -36,4 +36,14 @@ export class UserComponent implements OnInit {
       .afterClosed()
       .subscribe();
   }
+
+  editUser(user) {
+    this.dialog
+      .open(UserInfoDialogComponent, {
+        width: '400px',
+        data: user,
+      })
+      .afterClosed()
+      .subscribe();
+  }
 }

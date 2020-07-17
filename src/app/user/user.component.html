@@ -33,9 +33,9 @@
         </button>
       </mat-header-cell>
 
-      <mat-cell *matCellDef="let row; let i = index">
+      <mat-cell *matCellDef="let user">
         <button mat-icon-button color="accent">
-          <mat-icon aria-label="Edit">edit</mat-icon>
+          <mat-icon aria-label="Edit" (click)="editUser(user)">edit</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
